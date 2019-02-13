@@ -7,13 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8504409D2214259100A775D7 /* AutoCaseName.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8504409C2214259100A775D7 /* AutoCaseName.generated.swift */; };
+		8504409F2214275C00A775D7 /* RxCocoaExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8504409E2214275C00A775D7 /* RxCocoaExtension.swift */; };
 		85455A8D21675A1C007BF73C /* HomeScreenCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85455A8821675A1C007BF73C /* HomeScreenCoordinator.swift */; };
 		85455A8E21675A1C007BF73C /* HomeScreenModuleInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85455A8921675A1C007BF73C /* HomeScreenModuleInterface.swift */; };
 		85455A8F21675A1C007BF73C /* HomeScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85455A8A21675A1C007BF73C /* HomeScreenViewController.swift */; };
 		85455A9021675A1C007BF73C /* HomeScreenViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 85455A8B21675A1C007BF73C /* HomeScreenViewController.xib */; };
 		85455A9121675A1C007BF73C /* HomeScreenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85455A8C21675A1C007BF73C /* HomeScreenViewModel.swift */; };
 		85723CDF216B207A00B61790 /* AutoDependencyType.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85723CDE216B207A00B61790 /* AutoDependencyType.generated.swift */; };
-		85723CE1216B338E00B61790 /* TestModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85723CE0216B338E00B61790 /* TestModel.swift */; };
 		85882F0021666B200082E2AF /* Libraries.h in Headers */ = {isa = PBXBuildFile; fileRef = 85882EFE21666B200082E2AF /* Libraries.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		85882F0321666B200082E2AF /* Libraries.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 85882EFC21666B200082E2AF /* Libraries.framework */; };
 		85882F0421666B200082E2AF /* Libraries.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 85882EFC21666B200082E2AF /* Libraries.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -67,13 +68,14 @@
 /* Begin PBXFileReference section */
 		70F5E5722A0730B91960086B /* Pods-CodeGenTemplate.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CodeGenTemplate.release.xcconfig"; path = "Pods/Target Support Files/Pods-CodeGenTemplate/Pods-CodeGenTemplate.release.xcconfig"; sourceTree = "<group>"; };
 		76DD74C56354957EC0082DB9 /* Pods-CodeGenTemplate.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CodeGenTemplate.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CodeGenTemplate/Pods-CodeGenTemplate.debug.xcconfig"; sourceTree = "<group>"; };
+		8504409C2214259100A775D7 /* AutoCaseName.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutoCaseName.generated.swift; sourceTree = "<group>"; };
+		8504409E2214275C00A775D7 /* RxCocoaExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RxCocoaExtension.swift; sourceTree = "<group>"; };
 		85455A8821675A1C007BF73C /* HomeScreenCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreenCoordinator.swift; sourceTree = "<group>"; };
 		85455A8921675A1C007BF73C /* HomeScreenModuleInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreenModuleInterface.swift; sourceTree = "<group>"; };
 		85455A8A21675A1C007BF73C /* HomeScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreenViewController.swift; sourceTree = "<group>"; };
 		85455A8B21675A1C007BF73C /* HomeScreenViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeScreenViewController.xib; sourceTree = "<group>"; };
 		85455A8C21675A1C007BF73C /* HomeScreenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreenViewModel.swift; sourceTree = "<group>"; };
 		85723CDE216B207A00B61790 /* AutoDependencyType.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutoDependencyType.generated.swift; sourceTree = "<group>"; };
-		85723CE0216B338E00B61790 /* TestModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestModel.swift; sourceTree = "<group>"; };
 		85882EFC21666B200082E2AF /* Libraries.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Libraries.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		85882EFE21666B200082E2AF /* Libraries.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Libraries.h; sourceTree = "<group>"; };
 		85882EFF21666B200082E2AF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -234,7 +236,6 @@
 				85FBFBD02166295A00F73EDC /* Assets.xcassets */,
 				85FBFBD22166295A00F73EDC /* LaunchScreen.storyboard */,
 				85FBFBD52166295A00F73EDC /* Info.plist */,
-				85723CE0216B338E00B61790 /* TestModel.swift */,
 			);
 			path = CodeGenTemplate;
 			sourceTree = "<group>";
@@ -254,6 +255,7 @@
 			isa = PBXGroup;
 			children = (
 				85FBFC002166320A00F73EDC /* Generated.swift */,
+				8504409E2214275C00A775D7 /* RxCocoaExtension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -261,6 +263,7 @@
 		85FBFC02216633C100F73EDC /* Generated */ = {
 			isa = PBXGroup;
 			children = (
+				8504409C2214259100A775D7 /* AutoCaseName.generated.swift */,
 				85723CDE216B207A00B61790 /* AutoDependencyType.generated.swift */,
 				85FBFC05216633C100F73EDC /* AutoEquatable.generated.swift */,
 			);
@@ -445,7 +448,6 @@
 				85882F1F216723480082E2AF /* BaseViewModel.swift in Sources */,
 				85FBFC07216633C100F73EDC /* AutoEquatable.generated.swift in Sources */,
 				85723CDF216B207A00B61790 /* AutoDependencyType.generated.swift in Sources */,
-				85723CE1216B338E00B61790 /* TestModel.swift in Sources */,
 				85882F6C21674BEA0082E2AF /* SplashScreenCoordinator.swift in Sources */,
 				85455A8D21675A1C007BF73C /* HomeScreenCoordinator.swift in Sources */,
 				85882F6D21674BEA0082E2AF /* SplashScreenModuleInterface.swift in Sources */,
@@ -457,10 +459,12 @@
 				85455A8E21675A1C007BF73C /* HomeScreenModuleInterface.swift in Sources */,
 				85882F7021674BEA0082E2AF /* SplashScreenViewModel.swift in Sources */,
 				85FBFBCA2166295900F73EDC /* AppDelegate.swift in Sources */,
+				8504409D2214259100A775D7 /* AutoCaseName.generated.swift in Sources */,
 				85882F6E21674BEA0082E2AF /* SplashScreenViewController.swift in Sources */,
 				85882F0C21666FAE0082E2AF /* AppDependency.swift in Sources */,
 				85455A9121675A1C007BF73C /* HomeScreenViewModel.swift in Sources */,
 				85882F21216723920082E2AF /* BaseDependency.swift in Sources */,
+				8504409F2214275C00A775D7 /* RxCocoaExtension.swift in Sources */,
 				85882F1B216723240082E2AF /* BaseViewController.swift in Sources */,
 				85FBFBF32166308700F73EDC /* Coordinator.swift in Sources */,
 			);

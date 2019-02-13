@@ -20,10 +20,12 @@ extension HomeScreenCoordinator: HomeScreenCoordinatorType {}
 protocol HomeScreenViewModelInputs {
 // sourcery:inline:auto:HomeScreenViewModelInputs.InputsType
 	var onViewDidLoad: PublishRelay<Void> { get }
+	var onWillDisplayCellAtIndex: PublishRelay<Int> { get }
 // sourcery:end
  }
 protocol HomeScreenViewModelOutputs {
 // sourcery:inline:auto:HomeScreenViewModelOutputs.OutputsType
+	var cells: Driver<[HomeScreenCellType]> { get }
 // sourcery:end
  }
 

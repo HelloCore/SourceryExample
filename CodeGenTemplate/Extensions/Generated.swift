@@ -13,5 +13,5 @@ protocol AutoCoordinatorType { }
 protocol AutoDependencyType { }
 protocol AutoCoordinatorTargetType { }
 protocol AutoInitialize { }
-
+protocol AutoCaseName { }
 
