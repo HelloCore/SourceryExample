@@ -1,0 +1,37 @@
+{% for type in types.types where type.implements.AutoViewModelType %}
+
+{% for inputProtocol in types.protocols where inputProtocol.name|hasPrefix:type.localName and inputProtocol.name|hasSuffix:"Inputs" %}
+	// sourcery:inline:auto:{{inputProtocol.name}}.InputsType
+	{% for variable in type.variables where variable|annotated:"viewModelInputs" %}
+	var {{variable.name}}: {{variable.typeName}} { get }
+	{% endfor %}
+	{% for method in type.methods where method|annotated:"viewModelInputs" %}
+	func {{method.name}}
+	{% endfor %}
+	// sourcery:end
+
+
+{% endfor %}
+
+{% for outputProtocol in types.protocols where outputProtocol.name|hasPrefix:type.localName and outputProtocol.name|hasSuffix:"Outputs" %}
+	// sourcery:inline:auto:{{outputProtocol.name}}.OutputsType
+	{% for variable in type.variables where variable|annotated:"viewModelOutputs" %}
+	var {{variable.name}}: {{variable.typeName}} { get }
+	{% endfor %}
+	{% for method in type.methods where method|annotated:"viewModelOutputs" %}
+	func {{method.name}}
+	{% endfor %}
+	// sourcery:end
+{% endfor %}
+
+{% endfor %}
+
+{% for type in types.types where type.implements.AutoCoordinatorType %}
+	{% for protocol in types.protocols where protocol.name|hasPrefix:type.localName and protocol.name|hasSuffix:"Type" %}
+	// sourcery:inline:auto:{{protocol.name}}.CoordinatorType
+		{% for method in type.methods where method.name|hasPrefix:"navigate" %}
+	func {{method.name}}
+		{% endfor %}
+	// sourcery:end
+	{% endfor %}
+{% endfor %}

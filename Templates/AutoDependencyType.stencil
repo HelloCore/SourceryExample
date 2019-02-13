@@ -1,0 +1,16 @@
+{% for type in types.types where type.implements.AutoDependencyType %}
+import RxSwift
+import RxCocoa
+import Moya
+
+{% for variable in type.variables where variable|annotated:"hasDependencyType" %}
+// MARK: - Has{{variable.name|upperFirstLetter}} 
+protocol Has{{variable.name|upperFirstLetter}} {
+	var {{variable.name}}: {{variable.typeName}} { get }
+}
+
+extension {{type.name}}: Has{{variable.name|upperFirstLetter}} {}
+
+{% endfor %}
+
+{% endfor %}

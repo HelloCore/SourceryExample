@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Kind</key>
+	<string>Xcode.IDEFoundation.TextSubstitutionFileTemplateKind</string>
+	<key>Description</key>
+	<string>A MVVM with Input Output Template.</string>
+	<key>Summary</key>
+	<string>A MVVM with Input Output Template</string>
+	<key>SortOrder</key>
+	<string>30</string>
+	<key>AllowedTypes</key>
+	<array>
+		<string>public.swift-source</string>
+	</array>
+	<key>DefaultCompletionName</key>
+	<string>File</string>
+	<key>Options</key>
+	<array>
+		<dict>
+			<key>Identifier</key>
+			<string>classIdentifier</string>
+			<key>Required</key>
+			<true/>
+			<key>Name</key>
+			<string>Module Identifier:</string>
+			<key>Description</key>
+			<string>Type Main for MainViewController and MainViewModel</string>
+			<key>Type</key>
+			<string>text</string>
+			<key>NotPersisted</key>
+			<true/>
+		</dict>
+		<dict>
+			<key>Default</key>
+			<string>BaseViewController</string>
+			<key>Description</key>
+			<string>ViewController class that the new class will be a subclass of</string>
+			<key>Identifier</key>
+			<string>controllerSubclass</string>
+			<key>Name</key>
+			<string>ViewController subclass of:</string>
+			<key>Required</key>
+			<string>Yes</string>
+			<key>Type</key>
+            <string>static</string>
+            <key>Default</key>
+            <string>BaseViewController</string>
+			<key>NotPersisted</key>
+			<string>Yes</string>
+		</dict>
+		<dict>
+			<key>Identifier</key>
+			<string>extendedViewModelClass</string>
+			<key>Name</key>
+			<string>ViewModel subclass of:</string>
+			<key>Description</key>
+			<string>ViewModel class that the new class will be a subclass of</string>
+			<key>Default</key>
+			<string>BaseViewModel</string>
+			<key>Required</key>
+			<false/>
+			<key>Type</key>
+            <string>static</string>
+			<key>NotPersisted</key>
+			<true/>
+		</dict>
+    	<dict>
+			<key>Default</key>
+			<string>___VARIABLE_classIdentifier:identifier___ViewController</string>
+			<key>Description</key>
+			<string>The view controller name</string>
+			<key>Identifier</key>
+			<string>viewControllerName</string>
+			<key>Name</key>
+			<string>View Controller Name:</string>
+			<key>Required</key>
+			<true/>
+			<key>Type</key>
+			<string>static</string>
+    	</dict>
+    	<dict>
+			<key>Default</key>
+			<string>___VARIABLE_classIdentifier:identifier___ViewModel</string>
+			<key>Description</key>
+			<string>The view Model name</string>
+			<key>Identifier</key>
+			<string>viewModelName</string>
+			<key>Name</key>
+			<string>View Model Name:</string>
+			<key>Required</key>
+			<true/>
+			<key>Type</key>
+			<string>static</string>
+    	</dict>
+        <dict>
+            <key>Default</key>
+            <string>___VARIABLE_classIdentifier:identifier___Coordinator</string>
+            <key>Description</key>
+            <string>The coordinator name</string>
+            <key>Identifier</key>
+            <string>coordinatorlName</string>
+            <key>Name</key>
+            <string>Coordinator Name:</string>
+            <key>Required</key>
+            <true/>
+            <key>Type</key>
+            <string>static</string>
+        </dict>
+	</array>
+</dict>
+</plist>

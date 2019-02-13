@@ -1,0 +1,75 @@
+{% macro getType variable %}{% if variable.typeName|hasPrefix:"PublishSubject" %}PublishSubject{% elif variable.typeName|hasPrefix:"PublishRelay" %}PublishRelay{% elif variable.typeName|hasPrefix:"BehaviorRelay" %}BehaviorRelay{% elif variable.typeName|hasPrefix:"BehaviorSubject" %}BehaviorSubject{% endif %}{% endmacro %}
+{% macro getVarType variable %}{{ variable.typeName|replace:"PublishSubject",""|replace:"PublishRelay",""|replace:"BehaviorSubject",""|replace:"BehaviorRelay",""|replace:"<",""|replace:">","" }}{% endmacro %}
+
+{% macro inputMethod variable %}
+{% if variable.typeName|hasPrefix:"PublishSubject" or variable.typeName|hasPrefix:"BehaviorSubject" %}
+	{% if variable.typeName|contains:"<Void>" %}
+			{{variable.name}}.onNext(())
+	{% else %}
+			{{variable.name}}.onNext(value)
+	{% endif %}
+{% elif variable.typeName|hasPrefix:"PublishRelay" or variable.typeName|hasPrefix:"BehaviorRelay" %}
+	{% if variable.typeName|contains:"<Void>" %}
+			{{variable.name}}.accept(())
+	{% else %}
+			{{variable.name}}.accept(value)
+	{% endif %}
+{% endif %}
+{% endmacro %}
+
+{% for type in types.types where type.implements.AutoViewModelType %}
+
+{% for inputProtocol in types.protocols where inputProtocol.name|hasPrefix:type.localName and inputProtocol.name|hasSuffix:"Inputs" %}
+	// sourcery:inline:auto:{{inputProtocol.name}}.InputsType
+	{% for variable in type.variables where variable|annotated:"viewModelInputs" %}
+	{% if variable.typeName|contains:"<" %}
+		{% if variable.typeName|contains:"<Void>" %}
+	func on{{variable.name|upperFirstLetter}}()
+		{% else %}
+	func on{{variable.name|upperFirstLetter}}(_ value: {% call getVarType variable %})
+		{% endif %}
+	{% else %}
+	var {{variable.name}}: {{variable.typeName}} { get }
+	{% endif %}
+	{% endfor %}
+	// sourcery:end
+
+	// sourcery:inline:auto:{{type.name}}.{{inputProtocol.name}}
+	{% for variable in type.variables where variable|annotated:"viewModelInputs" %}
+		{% if variable.typeName|contains:"<" %}
+			{% if variable.typeName|contains:"<Void>" %}
+
+		func on{{variable.name|upperFirstLetter}}() {
+				{% call inputMethod variable %}
+		}
+			{% else %}
+
+		func on{{variable.name|upperFirstLetter}}(_ value: {% call getVarType variable %}) {
+			{% call inputMethod variable %}
+		}
+			{% endif %}
+		{% endif %}
+	{% endfor %}
+	// sourcery:end
+
+{% endfor %}
+
+{% for outputProtocol in types.protocols where outputProtocol.name|hasPrefix:type.localName and outputProtocol.name|hasSuffix:"Outputs" %}
+	// sourcery:inline:auto:{{outputProtocol.name}}.OutputsType
+	{% for variable in type.variables where variable|annotated:"viewModelOutputs" %}
+	var {{variable.name}}: {{variable.typeName}} { get }
+	{% endfor %}
+	// sourcery:end
+{% endfor %}
+
+{% endfor %}
+
+{% for type in types.types where type.implements.AutoCoordinatorType %}
+	{% for protocol in types.protocols where protocol.name|hasPrefix:type.localName and protocol.name|hasSuffix:"Type" %}
+	// sourcery:inline:auto:{{protocol.name}}.CoordinatorType
+		{% for method in type.methods where method.name|hasPrefix:"navigate" %}
+	func {{method.name}}
+		{% endfor %}
+	// sourcery:end
+	{% endfor %}
+{% endfor %}

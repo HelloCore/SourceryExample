@@ -1,0 +1,6 @@
+sources:
+  - CodeGenTemplate
+templates:
+  - Templates
+output:
+  CodeGenTemplate/Generated

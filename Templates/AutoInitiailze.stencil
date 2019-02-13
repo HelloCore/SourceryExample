@@ -1,0 +1,11 @@
+{% macro createParams type %}{% for variable in type.variables %}{% if not forloop.first %},{% endif %}{{variable.name}}: {{variable.typeName}}{% endfor %}{% endmacro %}
+
+{% for type in types.classes where type.implements.AutoInitialize or type|annotated:"AutoInitialize" %}
+// sourcery:inline:auto:{{ type.name }}.AutoInitialize
+    init({% call createParams type %}) {
+        {% for variable in type.variables %}
+        self.{{variable.name}} = {{variable.name}}
+        {% endfor %}
+    }
+// sourcery:end
+{% endfor %}
